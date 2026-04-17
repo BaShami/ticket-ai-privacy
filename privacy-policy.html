@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Ticket AI Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161d;
+    --border: #1e2330;
+    --accent: #4f8ef7;
+    --accent-dim: rgba(79,142,247,0.12);
+    --text: #e8eaf0;
+    --muted: #7a8099;
+    --green: #3ecf8e;
+    --amber: #f0a24a;
+    --red: #f06a6a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 16px;
+    min-height: 100vh;
+  }
+
+  /* Grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(79,142,247,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,142,247,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 32px 120px;
+  }
+
+  /* Header */
+  header {
+    margin-bottom: 64px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(79,142,247,0.25);
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 28px;
+  }
+
+  .badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .meta {
+    margin-top: 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .meta-item span {
+    color: var(--text);
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 56px;
+  }
+
+  .toc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 32px;
+  }
+
+  .toc li { counter-increment: toc; }
+
+  .toc a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+
+  .toc a:hover { color: var(--text); }
+
+  /* Sections */
+  section {
+    margin-bottom: 56px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.5s forwards;
+  }
+
+  section:nth-child(1) { animation-delay: 0.05s; }
+  section:nth-child(2) { animation-delay: 0.1s; }
+  section:nth-child(3) { animation-delay: 0.15s; }
+  section:nth-child(4) { animation-delay: 0.2s; }
+  section:nth-child(5) { animation-delay: 0.25s; }
+  section:nth-child(6) { animation-delay: 0.3s; }
+  section:nth-child(7) { animation-delay: 0.35s; }
+  section:nth-child(8) { animation-delay: 0.4s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    opacity: 0.5;
+    padding-top: 6px;
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  p {
+    color: #b0b4c8;
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* Data table cards */
+  .data-grid {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .data-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 8px 24px;
+    align-items: start;
+  }
+
+  .data-card:hover {
+    border-color: rgba(79,142,247,0.3);
+    transition: border-color 0.2s;
+  }
+
+  .data-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    padding-top: 2px;
+  }
+
+  .data-value {
+    font-size: 14px;
+    color: #b0b4c8;
+    line-height: 1.6;
+  }
+
+  .data-value strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* Tag pills */
+  .tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin: 2px 4px 2px 0;
+    letter-spacing: 0.04em;
+  }
+
+  .tag-green { background: rgba(62,207,142,0.1); color: var(--green); border: 1px solid rgba(62,207,142,0.2); }
+  .tag-amber { background: rgba(240,162,74,0.1); color: var(--amber); border: 1px solid rgba(240,162,74,0.2); }
+  .tag-blue  { background: rgba(79,142,247,0.1); color: var(--accent); border: 1px solid rgba(79,142,247,0.2); }
+  .tag-red   { background: rgba(240,106,106,0.1); color: var(--red);   border: 1px solid rgba(240,106,106,0.2); }
+
+  /* Callout box */
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-dim);
+    padding: 16px 20px;
+    border-radius: 0 6px 6px 0;
+    margin: 20px 0;
+  }
+
+  .callout p { color: var(--text); font-size: 14px; margin: 0; }
+
+  /* Divider */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 56px 0;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-left {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .footer-right {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .footer-right a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    .toc ol { grid-template-columns: 1fr; }
+    .data-card { grid-template-columns: 1fr; }
+    .wrap { padding: 48px 20px 80px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="badge">Chrome Extension · Internal Tool</div>
+    <h1>Privacy Policy<br><em>Ticket AI Assistant</em></h1>
+    <p class="subtitle">This policy describes how the Ticket AI Assistant extension handles your data.</p>
+    <div class="meta">
+      <div class="meta-item">Effective: <span>June 2025</span></div>
+      <div class="meta-item">Version: <span>2.3.0</span></div>
+      <div class="meta-item">Scope: <span>Internal enterprise tool</span></div>
+    </div>
+  </header>
+
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#data-collected">Data Collected</a></li>
+      <li><a href="#how-used">How We Use It</a></li>
+      <li><a href="#storage">Storage & Retention</a></li>
+      <li><a href="#third-parties">Third Parties</a></li>
+      <li><a href="#not-collected">What We Don't Collect</a></li>
+      <li><a href="#your-rights">Your Rights</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </div>
+
+  <section id="overview">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Overview</h2>
+    </div>
+    <p>Ticket AI Assistant is an internal Chrome extension built for customer care agents at Make.com. It operates exclusively within the Freshdesk support platform to help agents summarise tickets, draft replies, assess CSAT risk, and find related historical tickets — all without leaving the active ticket view.</p>
+    <div class="callout">
+      <p>This extension is an internal operational tool. It is not distributed to end customers and does not collect any data from Make.com's customers or end users.</p>
+    </div>
+    <p>This policy applies to all agents who install and use the extension. By using it, you acknowledge the practices described here.</p>
+  </section>
+
+  <section id="data-collected">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Data Collected</h2>
+    </div>
+    <p>The extension accesses the following data categories during normal operation:</p>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-label">Ticket content</div>
+        <div class="data-value"><strong>Subject line, description, and conversation thread</strong> of the currently open Freshdesk ticket. Read from the page DOM and/or Freshdesk's internal API using the agent's live browser session.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">Agent identity</div>
+        <div class="data-value"><strong>Agent email address</strong>, stored locally after first use and included in webhook payloads for analytics attribution. Never used for authentication or shared externally.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">OpenAI API key</div>
+        <div class="data-value"><strong>Entered once by each agent</strong> and stored in <code>chrome.storage.local</code> on their own device. Used only to call the OpenAI API for Related Tickets keyword generation. Never transmitted to any Make.com-operated server.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">Related ticket IDs</div>
+        <div class="data-value"><strong>Freshdesk ticket IDs</strong> returned by internal search queries. Sent to the Make.com backend to fetch full ticket details for relevance ranking.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">Usage analytics</div>
+        <div class="data-value"><strong>Action type, timestamp, agent email, tone selection, and ticket ID</strong> sent as anonymous usage events to a separate Make.com analytics scenario. Used solely to understand feature adoption.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">Tone preference</div>
+        <div class="data-value"><strong>Selected reply tone</strong> (e.g. formal, friendly) stored in <code>chrome.storage.local</code> as a UI preference. Never transmitted independently.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-used">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>How We Use It</h2>
+    </div>
+    <p>All data access is strictly purpose-limited to the following uses:</p>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-label">AI actions</div>
+        <div class="data-value">Ticket content is sent to the Make.com webhook, which passes it to an OpenAI GPT model to generate summaries, reply drafts, next-step suggestions, and CSAT risk assessments. <span class="tag tag-blue">transient</span></div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">Related tickets</div>
+        <div class="data-value">Ticket subject and description are sent to OpenAI (via the agent's own API key) to generate keyword variants. These keywords drive internal Freshdesk searches. Resulting IDs are sent to Make.com for ranking. <span class="tag tag-blue">transient</span></div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">Analytics</div>
+        <div class="data-value">Usage events (action type, agent email, timestamp) are logged to an internal Make.com analytics scenario for feature adoption tracking. No ticket content is included. <span class="tag tag-amber">retained</span></div>
+      </div>
+    </div>
+
+    <p style="margin-top: 20px;">Data is never used for model training, advertising, profiling, or shared with any party outside the tools listed under Third Parties below.</p>
+  </section>
+
+  <section id="storage">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Storage &amp; Retention</h2>
+    </div>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-label">Local (device only)</div>
+        <div class="data-value">
+          <strong>OpenAI API key</strong> — stored in <code>chrome.storage.local</code>, never leaves the agent's browser.<br>
+          <strong>Agent email</strong> — stored in <code>chrome.storage.local</code> for UI persistence.<br>
+          <strong>Tone preference</strong> — stored in <code>chrome.storage.local</code>.<br>
+          <span class="tag tag-green">no server copy</span> <span class="tag tag-green">clears on extension uninstall</span>
+        </div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">In-transit (Make.com)</div>
+        <div class="data-value">
+          Ticket content sent to Make.com webhooks is processed in memory and <strong>not persisted</strong> after the webhook response is returned. Make.com execution logs may retain metadata (not content) per Make.com's own data retention policy.
+          <span class="tag tag-blue">transient processing</span>
+        </div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">Analytics store</div>
+        <div class="data-value">
+          Usage events (no ticket content) are stored in the Make.com analytics scenario datastore. Retained indefinitely for internal reporting unless manually purged by an administrator.
+          <span class="tag tag-amber">retained</span>
+        </div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">OpenAI (third party)</div>
+        <div class="data-value">
+          Ticket content passed to OpenAI via the Make.com connection is subject to <strong>OpenAI's data retention and privacy policy</strong>. Enterprise API usage may be configured for zero data retention. The agent's personal API key calls (for keyword generation) are also governed by OpenAI's terms.
+          <span class="tag tag-red">see OpenAI policy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="third-parties">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2>Third Parties</h2>
+    </div>
+    <p>The extension interacts with the following external services:</p>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-label">OpenAI</div>
+        <div class="data-value">Receives ticket content (via Make.com) for AI action generation, and receives ticket subject/description (via the agent's own API key) for keyword generation in the Related Tickets feature. Governed by <a href="https://openai.com/policies/privacy-policy" target="_blank" style="color: var(--accent);">OpenAI's Privacy Policy</a>.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">Make.com</div>
+        <div class="data-value">Hosts the backend automation scenario. Processes webhook payloads containing ticket content. Subject to <a href="https://www.make.com/en/privacy-notice" target="_blank" style="color: var(--accent);">Make.com's Privacy Notice</a>. This is an internal Make.com-operated tool.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">Freshdesk</div>
+        <div class="data-value">The extension reads data from the Freshdesk DOM and calls Freshdesk's internal search API using the agent's active browser session. No additional authentication is introduced; the agent's existing Freshdesk session credentials are used.</div>
+      </div>
+    </div>
+
+    <p style="margin-top:20px;">No other third-party services receive any data from this extension.</p>
+  </section>
+
+  <section id="not-collected">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2>What We Don't Collect</h2>
+    </div>
+    <p>The following data is explicitly <strong>never</strong> collected or transmitted:</p>
+    <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px;">
+      <span class="tag tag-red">browsing history</span>
+      <span class="tag tag-red">pages outside Freshdesk</span>
+      <span class="tag tag-red">keystrokes or clipboard</span>
+      <span class="tag tag-red">customer PII beyond ticket content</span>
+      <span class="tag tag-red">passwords or auth tokens</span>
+      <span class="tag tag-red">device identifiers</span>
+      <span class="tag tag-red">location data</span>
+      <span class="tag tag-red">data from non-ticket FD pages</span>
+    </div>
+    <p style="margin-top: 20px;">The extension only activates on Freshdesk ticket pages (URLs matching <code style="font-family: 'DM Mono'; font-size:13px; color: var(--accent);">*/helpdesk/tickets/*</code>). It has no access to any other browser activity.</p>
+  </section>
+
+  <section id="your-rights">
+    <div class="section-head">
+      <span class="section-num">07</span>
+      <h2>Your Rights</h2>
+    </div>
+    <p>As an internal tool used by Make.com employees, data handling falls within Make.com's employee data policies. Agents have the following options:</p>
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-label">Clear local data</div>
+        <div class="data-value">All locally stored data (API key, email, tone preference) can be cleared by removing the extension from Chrome, or via Chrome's extension storage management.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">Analytics opt-out</div>
+        <div class="data-value">Analytics events are tied to agent email. Request removal of your data from the analytics datastore by contacting the CX tooling team.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-label">OpenAI key</div>
+        <div class="data-value">Each agent controls their own OpenAI API key. You may revoke or rotate it at any time via the OpenAI dashboard. The extension will prompt for a new key on next use.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-head">
+      <span class="section-num">08</span>
+      <h2>Contact</h2>
+    </div>
+    <p>This extension is maintained by the Make.com Customer Experience tooling team. For questions about this policy or data handling, contact the team via your internal Slack channel or raise a request with the CX tooling team directly.</p>
+    <div class="callout">
+      <p>This policy may be updated as the extension evolves. The effective date at the top of this page reflects the most recent revision. Agents will be notified of material changes via internal comms.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">
+      Ticket AI Assistant · v2.3.0<br>
+      Make.com Internal Tool<br>
+      Last updated: June 2025
+    </div>
+    <div class="footer-right">
+      Internal use only — not for distribution
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
